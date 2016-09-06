@@ -1,3 +1,6 @@
-fib ::  Int -> Int
-fib 1 = 1
-fib n = if n < 1 then 0 else (fib (n-1)) + (fib (n-2))
+fib :: (Num a, Ord a) => a -> a
+fib n 
+  | n <= 1 = 1
+  | otherwise = fib (n-1) + fib (n-2)
+
+fibs = 0 : 1 : zipWith (+) fibs (tail fibs)
